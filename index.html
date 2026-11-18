@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>Bay Wines</title>
+<script>
+var v;
+try { v = localStorage.getItem('bw_variant'); } catch (e) {}
+if (v !== 'a' && v !== 'b') {
+  v = Math.random() < 0.5 ? 'a' : 'b';
+  try { localStorage.setItem('bw_variant', v); } catch (e) {}
+}
+var dest = {
+  a: 'https://sites.google.com/view/baywinesa/home',
+  b: 'https://sites.google.com/view/baywinesb/home'
+};
+var extra = location.search ? '&' + location.search.slice(1) : '';
+location.replace(dest[v] + '?variant=' + v + extra);
+</script>
+</head>
+<body></body>
+</html>
